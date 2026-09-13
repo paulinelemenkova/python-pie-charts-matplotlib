@@ -1,18 +1,28 @@
 #!/usr/bin/env python
 # coding: utf-8
+"""Pie Charts with Python and Matplotlib
+
+Author:  Polina Lemenkova
+ORCID:   https://orcid.org/0000-0002-5759-1089
+Archive: https://doi.org/10.13140/RG.2.2.33869.69606
+License: MIT
+
+See README.md for details.
+"""
 import os
-import pandas as pd
+
 import numpy as np
+import pandas as pd
 from matplotlib import pyplot as plt
 
-os.chdir('/Users/pauline/Documents/Python')
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 dfM = pd.read_csv("Tab-Morph.csv")
 
 # dataset
-df = pd.DataFrame({'Pacific Plate':dfM.plate_pacif,
-                  'Philippine Plate':dfM.plate_phill,
-                  'Mariana Plate':dfM.plate_maria,
-                  'Caroline Plate':dfM.plate_carol},
+df = pd.DataFrame({'Pacific Plate': dfM.plate_pacif,
+                  'Philippine Plate': dfM.plate_phill,
+                   'Mariana Plate': dfM.plate_maria,
+                   'Caroline Plate': dfM.plate_carol},
                   index=dfM.profile)
 
 # plot chart
@@ -27,4 +37,3 @@ df.plot(kind='pie', subplots=True, figsize=(10, 10),
 plt.tight_layout()
 plt.savefig('plot_Pie.png', dpi=300)
 plt.show()
-
